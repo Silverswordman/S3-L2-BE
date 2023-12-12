@@ -27,7 +27,7 @@ public class Evento {
     @Column(name = "numero_massimo_partecipanti")
     private int numeroMassimoPartecipanti;
 
-    //GETTERS
+    //GETTERS e SETTERS
     public long getId() {
         return id;
     }
@@ -50,5 +50,29 @@ public class Evento {
 
     public int getNumeroMassimoPartecipanti() {
         return numeroMassimoPartecipanti;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setTitolo(String titolo) {
+        this.titolo = titolo;
+    }
+
+    public void setDataEvento(String dataEvento) {
+        this.dataEvento = dataEvento;
+    }
+
+    public void setDescrizione(String descrizione) {
+        this.descrizione = descrizione;
+    }
+
+    public void setTipoEvento(EventoType tipoEvento) {
+        this.tipoEvento = tipoEvento;
+    }
+
+    public void setNumeroMassimoPartecipanti(int numeroMassimoPartecipanti) {
+        this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
     }
 }
