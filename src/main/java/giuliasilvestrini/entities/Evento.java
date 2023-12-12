@@ -15,7 +15,7 @@ public class Evento {
     private String titolo;
 
     @Column(name = "data_evento")
-    private String dataEvento;
+    private LocalDate dataEvento;
 
     @Column(name = "descrizione")
     private String descrizione;
@@ -36,7 +36,7 @@ public class Evento {
         return titolo;
     }
 
-    public String getDataEvento() {
+    public LocalDate getDataEvento() {
         return dataEvento;
     }
 
@@ -61,7 +61,7 @@ public class Evento {
     }
 
     public void setDataEvento(String dataEvento) {
-        this.dataEvento = dataEvento;
+        this.dataEvento = LocalDate.parse(dataEvento);
     }
 
     public void setDescrizione(String descrizione) {
