@@ -4,11 +4,11 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "eventi") // non obbligatorio ricorda
+@Table (name = "eventi")
 public class Evento {
 
     @Id
-    @GeneratedValue  // vuoi far gestire gli di dal database
+    @GeneratedValue
     private long id;  // long per avere bigserial nel tipo del database
 
     @Column(name = "titolo")
@@ -26,6 +26,21 @@ public class Evento {
 
     @Column(name = "numero_massimo_partecipanti")
     private int numeroMassimoPartecipanti;
+
+    @OneToOne
+    @JoinColumn(name = "location_id")
+    private Location location;
+
+    public Evento(String titolo, LocalDate dataEvento, String descrizione, EventoType tipoEvento, int numeroMassimoPartecipanti) {
+
+        this.titolo = titolo;
+        this.dataEvento = dataEvento;
+        this.descrizione = descrizione;
+        this.tipoEvento = tipoEvento;
+        this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
+
+    }
+
 
     //GETTERS e SETTERS
     public long getId() {
@@ -74,5 +89,21 @@ public class Evento {
 
     public void setNumeroMassimoPartecipanti(int numeroMassimoPartecipanti) {
         this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
+    }
+
+    @Override
+    public String toString() {
+        return "Evento{" +
+                "id=" + id +
+                ", titolo='" + titolo + '\'' +
+                ", dataEvento=" + dataEvento +
+                ", descrizione='" + descrizione + '\'' +
+                ", tipoEvento=" + tipoEvento +
+                ", numeroMassimoPartecipanti=" + numeroMassimoPartecipanti +
+                '}';
+    }
+
+    public Location getLocation() {
+        return location;
     }
 }
