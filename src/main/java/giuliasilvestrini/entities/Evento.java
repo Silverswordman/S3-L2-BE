@@ -2,9 +2,10 @@ package giuliasilvestrini.entities;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
-@Table (name = "eventi")
+@Table(name = "eventi")
 public class Evento {
 
     @Id
@@ -31,6 +32,9 @@ public class Evento {
     @JoinColumn(name = "location_id")
     private Location location;
 
+    @OneToMany(mappedBy = "evento")
+    private List<Partecipazione> Partecipazione;
+
     public Evento(String titolo, LocalDate dataEvento, String descrizione, EventoType tipoEvento, int numeroMassimoPartecipanti) {
 
         this.titolo = titolo;
@@ -38,6 +42,7 @@ public class Evento {
         this.descrizione = descrizione;
         this.tipoEvento = tipoEvento;
         this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
+
 
     }
 
@@ -101,6 +106,14 @@ public class Evento {
                 ", tipoEvento=" + tipoEvento +
                 ", numeroMassimoPartecipanti=" + numeroMassimoPartecipanti +
                 '}';
+    }
+
+    public void setDataEvento(LocalDate dataEvento) {
+        this.dataEvento = dataEvento;
+    }
+
+    public void setPartecipazione(List<giuliasilvestrini.entities.Partecipazione> partecipazione) {
+        Partecipazione = partecipazione;
     }
 
     public Location getLocation() {

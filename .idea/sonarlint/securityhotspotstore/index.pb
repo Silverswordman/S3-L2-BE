@@ -24,3 +24,9 @@ q
 Asrc/main/java/giuliasilvestrini/entities/StatoPartecipazione.java,b\0\b0b9d92dbdfd37abc4ec0abf3b1b2c8b41243095
 f
 6src/main/java/giuliasilvestrini/entities/Location.java,7\4\743a256ebb4be4d5cf314f58a3cd7d8c2a72d054
+d
+4src/main/java/giuliasilvestrini/dao/LocationDAO.java,5\b\5b2a8a07900bcdd84a662613a851e5a2ccffa556
+c
+3src/main/java/giuliasilvestrini/dao/PersonaDAO.java,8\7\87c594083ef97617df51b9e00beb0e342dccd553
+j
+:src/main/java/giuliasilvestrini/dao/PartecipazioneDAO.java,a\e\ae2fcc07c3c69fd78d029c2c7abb5ffc7c1b6b9b

@@ -1,6 +1,8 @@
 package giuliasilvestrini.entities;
 
 
+import giuliasilvestrini.dao.EventoDAO;
+
 import javax.persistence.*;
 
 @Entity
@@ -15,12 +17,18 @@ public class Partecipazione {
     @JoinColumn(name = "persona_id", nullable = false)
     private Persona persona; // <--- FOREIGN KEY
 
+    @ManyToOne
+    @JoinColumn(name = "evento_id", nullable = false)
+    private Evento evento; // <--- FOREIGN KEY
+
+
     @Enumerated(EnumType.STRING)
     private StatoPartecipazione statopartecipazione;
 
-    public Partecipazione(long id, Persona persona, StatoPartecipazione statopartecipazione) {
+    public Partecipazione(long id, Persona persona, Evento evento, StatoPartecipazione statopartecipazione) {
         this.id = id;
         this.persona = persona;
+        this.evento = evento;
         this.statopartecipazione = statopartecipazione;
     }
 

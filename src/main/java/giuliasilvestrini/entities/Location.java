@@ -3,7 +3,7 @@ package giuliasilvestrini.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "locations")
+@Table(name = "location")
 public class Location {
     @Id
     @GeneratedValue
@@ -11,16 +11,19 @@ public class Location {
     private String nome;
     private String città;
 
-    @OneToOne(mappedBy = "eventi")
+    @OneToOne(mappedBy = "location")
     private Evento evento;
 
 
-    public Location(long id, String nome, String città, Evento evento) {
-        this.id = id;
+    public Location(String nome, String città) {
+
         this.nome = nome;
         this.città = città;
-        this.evento = evento;
+
+
     }
+
+
 
     public long getId() {
         return id;
@@ -52,5 +55,15 @@ public class Location {
 
     public void setEvento(Evento evento) {
         this.evento = evento;
+    }
+
+    @Override
+    public String toString() {
+        return "Location{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", città='" + città + '\'' +
+                ", evento=" + evento +
+                '}';
     }
 }
